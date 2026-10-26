@@ -75,12 +75,60 @@
             --menu-hover-bg: rgba(45, 212, 191, 0.1);
         }
 
-        /* Contrast Fixes */
+        /* Contrast & Visibility Fixes (Dark Mode) */
         body.dark-mode .btn-solid, body.dark-mode .bg-\[var\(--accent-color\)\] { color: #000000 !important; }
         body.dark-mode .btn-solid *, body.dark-mode .bg-\[var\(--accent-color\)\] * { color: #000000 !important; }
-        body.dark-mode .btn-outline:hover, body.dark-mode .hover\:\!bg-\[var\(--accent-color\)\]:hover { color: #000000 !important; }
-        body.dark-mode .hover\:\!bg-\[var\(--accent-color\)\]:hover * { color: #000000 !important; }
-        body.dark-mode .group:hover .group-hover\:\!bg-\[var\(--accent-color\)\] { color: #000000 !important; border-color: var(--accent-color) !important; }
+
+        /* Secondary CTA in Dark Mode - High Contrast, Visible & Interactive */
+        body.dark-mode .btn-outline {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.45);
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+        }
+        body.dark-mode .btn-outline * {
+            color: inherit !important;
+        }
+        body.dark-mode .btn-outline:hover {
+            background: var(--accent-color) !important;
+            border-color: var(--accent-color) !important;
+            color: #000000 !important;
+            box-shadow: 0 8px 25px -4px rgba(45, 212, 191, 0.45);
+            transform: translateY(-2px);
+        }
+        body.dark-mode .btn-outline:hover * {
+            color: #000000 !important;
+        }
+        body.dark-mode .group:hover .btn-outline,
+        body.dark-mode .group:hover .group-hover\:\!text-white,
+        body.dark-mode .group:hover .group-hover\:\!bg-\[var\(--accent-color\)\] {
+            background: var(--accent-color) !important;
+            border-color: var(--accent-color) !important;
+            color: #000000 !important;
+        }
+        body.dark-mode .group:hover .btn-outline * {
+            color: #000000 !important;
+        }
+        body.dark-mode .hover\:\!bg-\[var\(--accent-color\)\]:hover {
+            color: #000000 !important;
+            border-color: var(--accent-color) !important;
+        }
+        body.dark-mode .hover\:\!bg-\[var\(--accent-color\)\]:hover * {
+            color: #000000 !important;
+        }
+
+        /* Secondary buttons on accent teal backgrounds in Dark Mode */
+        body.dark-mode .bg-\[var\(--accent-color\)\] .btn.border-white {
+            border-color: rgba(0, 0, 0, 0.45) !important;
+            color: #000000 !important;
+            background: rgba(0, 0, 0, 0.06);
+        }
+        body.dark-mode .bg-\[var\(--accent-color\)\] .btn.border-white:hover {
+            background: #000000 !important;
+            border-color: #000000 !important;
+            color: #FFFFFF !important;
+        }
 
         /* RTL SUPPORT */
         [dir="rtl"] { text-align: right; }
@@ -142,28 +190,39 @@
 
         /* PILL TOGGLE */
         .theme-toggle-pill {
-            width: 52px; height: 28px; background: var(--bg-secondary); border-radius: 30px;
+            width: 68px; height: 40px; background: var(--bg-secondary); border-radius: 50px;
             position: relative; cursor: pointer; display: flex; align-items: center;
-            justify-content: space-between; padding: 0 6px; border: 1px solid var(--border-color);
+            justify-content: space-between; padding: 0 9px; border: 1px solid var(--border-color);
+            transition: all 0.3s ease; flex-shrink: 0;
         }
-        .theme-toggle-pill i { font-size: 10px; z-index: 1; }
+        .theme-toggle-pill i { font-size: 12px; z-index: 1; }
         .theme-toggle-pill .fa-sun { color: #0D9488; }
         .theme-toggle-pill .fa-moon { color: #6B7280; }
         .theme-toggle-pill .thumb {
-            position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; background: white;
+            position: absolute; top: 3px; left: 3px; width: 32px; height: 32px; background: white;
             border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); z-index: 2; border: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); z-index: 2; border: 1px solid var(--border-color);
         }
-        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(24px); background: #374151; border-color: var(--border-color); }
+        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(28px); background: #374151; border-color: var(--border-color); }
 
         /* RTL BUTTON STYLE */
         .rtl-btn-style {
-            width: 44px; height: 28px; background: var(--bg-secondary); border-radius: 6px;
-            border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;
-            font-size: 10px; font-weight: 700; cursor: pointer; color: var(--text-main);
-            transition: all 0.3s ease; font-family: 'Nunito', sans-serif;
+            width: 50px; height: 40px; background: var(--bg-secondary); border-radius: 8px;
+            border: 1px solid var(--border-color); display: inline-flex; align-items: center; justify-content: center;
+            font-size: 11px; font-weight: 700; cursor: pointer; color: var(--text-main);
+            transition: all 0.3s ease; font-family: 'Nunito', sans-serif; letter-spacing: 0.5px;
+            flex-shrink: 0;
         }
         .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+
+        .navbar .btn-solid {
+            height: 40px;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         /* === BUTTON DESIGN === */
         .btn {
@@ -260,7 +319,7 @@
                 </div>
                 <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
                 <div class="w-px h-6 bg-[var(--border-color)] mx-1"></div>
-                <a href="#" class="btn btn-solid !py-2.5 !px-6 !text-[11px]">Book Now</a>
+                <a href="#" class="btn btn-solid !h-[40px] !py-0 !px-6 !text-[11px]">Book Now</a>
             </div>
 
             <div class="xl:hidden flex items-center justify-end gap-4">
@@ -353,7 +412,7 @@
             </div>
 
             <div class="relative w-full h-[35vh] lg:h-[70vh] max-h-[600px] rounded-[2rem] overflow-hidden shadow-2xl">
-                <img src="images/footmassage (14).jpg" 
+                <img src="images/footmassage (10).jpg" 
                      alt="Holistic Spa Treatments" 
                      class="w-full h-full object-cover transition-transform duration-[20s] hover:scale-110" />
                 
@@ -390,7 +449,7 @@
                     <!-- Card 1 -->
                     <div class="group flex flex-col h-full bg-[var(--bg-card)] rounded-[2rem] overflow-hidden border border-[var(--border-color)] shadow-sm hover:shadow-2xl transition-all duration-300 text-left">
                         <div class="relative w-full h-64 overflow-hidden">
-                            <img src="images/footmassage (15).jpg" alt="Classic Reflexology" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <img src="images/footmassage (4).jpg" alt="Classic Reflexology" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-[var(--accent-color)] text-xs font-extrabold uppercase px-4 py-1.5 rounded-full shadow-sm">45 Min</div>
                         </div>
                         <div class="p-8 flex flex-col flex-1">
@@ -403,7 +462,7 @@
                     <!-- Card 2 -->
                     <div class="group flex flex-col h-full bg-[var(--bg-card)] rounded-[2rem] overflow-hidden border border-[var(--border-color)] shadow-sm hover:shadow-2xl transition-all duration-300 text-left">
                         <div class="relative w-full h-64 overflow-hidden">
-                            <img src="images/footmassage (16).jpg" alt="Hot Stone Therapy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <img src="images/hot stone.jpg" alt="Hot Stone Therapy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-[var(--accent-color)] text-xs font-extrabold uppercase px-4 py-1.5 rounded-full shadow-sm">60 Min</div>
                         </div>
                         <div class="p-8 flex flex-col flex-1">
@@ -416,7 +475,7 @@
                     <!-- Card 3 -->
                     <div class="group flex flex-col h-full bg-[var(--bg-card)] rounded-[2rem] overflow-hidden border border-[var(--border-color)] shadow-sm hover:shadow-2xl transition-all duration-300 text-left">
                         <div class="relative w-full h-64 overflow-hidden">
-                            <img src="images/footmassage (17).jpg" alt="Aromatherapy Foot Soak" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <img src="images/footmassage (8).jpg" alt="Aromatherapy Foot Soak" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-[var(--accent-color)] text-xs font-extrabold uppercase px-4 py-1.5 rounded-full shadow-sm">30 Min</div>
                         </div>
                         <div class="p-8 flex flex-col flex-1">
@@ -429,7 +488,7 @@
                     <!-- Card 4 -->
                     <div class="group flex flex-col h-full bg-[var(--bg-card)] rounded-[2rem] overflow-hidden border border-[var(--border-color)] shadow-sm hover:shadow-2xl transition-all duration-300 text-left">
                         <div class="relative w-full h-64 overflow-hidden">
-                            <img src="images/footmassage (18).jpg" alt="Deep Tissue Leg Massage" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <img src="images\footmassage (9).jpg" alt="Deep Tissue Leg Massage" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-[var(--accent-color)] text-xs font-extrabold uppercase px-4 py-1.5 rounded-full shadow-sm">60 Min</div>
                         </div>
                         <div class="p-8 flex flex-col flex-1">
@@ -442,7 +501,7 @@
                     <!-- Card 5 -->
                     <div class="group flex flex-col h-full bg-[var(--bg-card)] rounded-[2rem] overflow-hidden border border-[var(--border-color)] shadow-sm hover:shadow-2xl transition-all duration-300 text-left">
                         <div class="relative w-full h-64 overflow-hidden">
-                            <img src="images/footmassage (1).jpg" alt="Thai Herbal Compress" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <img src="images\footmassage (13).jpg" alt="Thai Herbal Compress" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-[var(--accent-color)] text-xs font-extrabold uppercase px-4 py-1.5 rounded-full shadow-sm">75 Min</div>
                         </div>
                         <div class="p-8 flex flex-col flex-1">
@@ -455,7 +514,7 @@
                     <!-- Card 6 -->
                     <div class="group flex flex-col h-full bg-[var(--bg-card)] rounded-[2rem] overflow-hidden border border-[var(--border-color)] shadow-sm hover:shadow-2xl transition-all duration-300 text-left">
                         <div class="relative w-full h-64 overflow-hidden">
-                            <img src="images/footmassage (2).jpg" alt="Sports Recovery Massage" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <img src="images/sports.jpg" alt="Sports Recovery Massage" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-[var(--accent-color)] text-xs font-extrabold uppercase px-4 py-1.5 rounded-full shadow-sm">90 Min</div>
                         </div>
                         <div class="p-8 flex flex-col flex-1">
@@ -550,36 +609,45 @@
                     <span class="text-[var(--accent-color)] font-bold text-sm uppercase tracking-widest mb-4 block">Quick Answers</span>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-[var(--text-main)] mb-10">Common Questions</h2>
                     
-                    <div class="space-y-6">
-                        <div class="bg-[var(--bg-secondary)] p-6 rounded-2xl border border-[var(--border-color)]">
-                            <h4 class="text-lg font-bold text-[var(--text-main)] mb-2 flex justify-between items-center">
-                                Do I need to prepare before a session?
-                                <i class="fas fa-chevron-down text-[var(--accent-color)] text-sm"></i>
-                            </h4>
-                            <p class="text-[var(--text-muted)] text-sm">We recommend arriving 10 minutes early to relax. Avoid heavy meals right before your appointment.</p>
+                    <div class="space-y-4">
+                        <div class="border border-[var(--border-color)] rounded-2xl bg-[var(--bg-card)] shadow-sm overflow-hidden faq-item">
+                            <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none faq-btn group">
+                                <span class="font-bold text-[var(--text-main)] text-lg group-hover:text-[var(--accent-color)] transition-colors pr-4">Do I need to prepare before a session?</span>
+                                <i class="fas fa-chevron-down text-[var(--text-muted)] group-hover:text-[var(--accent-color)] transition-transform duration-300"></i>
+                            </button>
+                            <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-[var(--bg-secondary)] faq-content">
+                                <div class="p-6 text-[var(--text-muted)] font-medium leading-relaxed">
+                                    We recommend arriving 10 minutes early to relax. Avoid heavy meals right before your appointment.
+                                </div>
+                            </div>
                         </div>
-                        <div class="bg-[var(--bg-secondary)] p-6 rounded-2xl border border-[var(--border-color)]">
-                            <h4 class="text-lg font-bold text-[var(--text-main)] mb-2 flex justify-between items-center">
-                                Is reflexology painful?
-                                <i class="fas fa-chevron-down text-[var(--accent-color)] text-sm"></i>
-                            </h4>
-                            <p class="text-[var(--text-muted)] text-sm">Our therapists adjust to your comfort level. You may feel a "good hurt" on tense pressure points, but it should never be agonizing.</p>
+                        <div class="border border-[var(--border-color)] rounded-2xl bg-[var(--bg-card)] shadow-sm overflow-hidden faq-item">
+                            <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none faq-btn group">
+                                <span class="font-bold text-[var(--text-main)] text-lg group-hover:text-[var(--accent-color)] transition-colors pr-4">Is reflexology painful?</span>
+                                <i class="fas fa-chevron-down text-[var(--text-muted)] group-hover:text-[var(--accent-color)] transition-transform duration-300"></i>
+                            </button>
+                            <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-[var(--bg-secondary)] faq-content">
+                                <div class="p-6 text-[var(--text-muted)] font-medium leading-relaxed">
+                                    Our therapists adjust to your comfort level. You may feel a "good hurt" on tense pressure points, but it should never be agonizing.
+                                </div>
+                            </div>
                         </div>
-                        <div class="bg-[var(--bg-secondary)] p-6 rounded-2xl border border-[var(--border-color)]">
-                            <h4 class="text-lg font-bold text-[var(--text-main)] mb-2 flex justify-between items-center">
-                                Can I mix treatments?
-                                <i class="fas fa-chevron-down text-[var(--accent-color)] text-sm"></i>
-                            </h4>
-                            <p class="text-[var(--text-muted)] text-sm">Yes! Many clients combine our deep foot reflexology with a 15-minute hot stone add-on for maximum relief.</p>
+                        <div class="border border-[var(--border-color)] rounded-2xl bg-[var(--bg-card)] shadow-sm overflow-hidden faq-item">
+                            <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none faq-btn group">
+                                <span class="font-bold text-[var(--text-main)] text-lg group-hover:text-[var(--accent-color)] transition-colors pr-4">Can I mix treatments?</span>
+                                <i class="fas fa-chevron-down text-[var(--text-muted)] group-hover:text-[var(--accent-color)] transition-transform duration-300"></i>
+                            </button>
+                            <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-[var(--bg-secondary)] faq-content">
+                                <div class="p-6 text-[var(--text-muted)] font-medium leading-relaxed">
+                                    Yes! Many clients combine our deep foot reflexology with a 15-minute hot stone add-on for maximum relief.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- CTA Side -->
                 <div class="bg-[var(--accent-color)] rounded-[2.5rem] p-10 md:p-14 text-center text-white shadow-xl relative overflow-hidden">
-                    <div class="absolute -top-10 -right-10 text-[200px] text-white/10 pointer-events-none">
-                        <i class="fas fa-spa"></i>
-                    </div>
                     <h2 class="text-3xl md:text-5xl font-extrabold mb-6 relative z-10">Ready to Relax?</h2>
                     <p class="text-white/90 text-lg mb-10 relative z-10 font-medium">
                         Secure your spot today and let our expert therapists guide you back to perfect physical harmony.
@@ -750,6 +818,38 @@
 
         if (rtlBtn) rtlBtn.onclick = toggleRTL;
         if (rtlMobile) rtlMobile.onclick = toggleRTL;
+
+        // ==============================================
+        // FAQ Accordion Logic
+        // ==============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqButtons = document.querySelectorAll('.faq-btn');
+            
+            faqButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    const isActive = content.style.maxHeight;
+
+                    // Close all other accordions (Optional, provides a clean UX)
+                    document.querySelectorAll('.faq-content').forEach(el => {
+                        if (el !== content) {
+                            el.style.maxHeight = null;
+                            el.previousElementSibling.querySelector('i').classList.remove('rotate-180');
+                        }
+                    });
+
+                    // Toggle current accordion
+                    if (isActive) {
+                        content.style.maxHeight = null;
+                        icon.classList.remove('rotate-180');
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.classList.add('rotate-180');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>

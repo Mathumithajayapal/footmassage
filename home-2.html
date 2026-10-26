@@ -75,11 +75,215 @@
             --menu-hover-bg: rgba(45, 212, 191, 0.1);
         }
 
-        /* Contrast Fixes */
+        /* Contrast & Visibility Fixes (Dark Mode) */
         body.dark-mode .btn-solid, body.dark-mode .bg-\[var\(--accent-color\)\] { color: #000000 !important; }
         body.dark-mode .btn-solid *, body.dark-mode .bg-\[var\(--accent-color\)\] * { color: #000000 !important; }
-        body.dark-mode .btn-outline:hover, body.dark-mode .hover\:\!bg-\[var\(--accent-color\)\]:hover { color: #000000 !important; }
-        body.dark-mode .hover\:\!bg-\[var\(--accent-color\)\]:hover * { color: #000000 !important; }
+
+        /* Secondary CTA in Dark Mode - High Contrast, Visible & Interactive */
+        body.dark-mode .btn-outline {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.45);
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+        }
+        body.dark-mode .btn-outline * {
+            color: inherit !important;
+        }
+        body.dark-mode .btn-outline:hover {
+            background: var(--accent-color) !important;
+            border-color: var(--accent-color) !important;
+            color: #000000 !important;
+            box-shadow: 0 8px 25px -4px rgba(45, 212, 191, 0.45);
+            transform: translateY(-2px);
+        }
+        body.dark-mode .btn-outline:hover * {
+            color: #000000 !important;
+        }
+        body.dark-mode .group:hover .btn-outline,
+        body.dark-mode .group:hover .group-hover\:\!text-white,
+        body.dark-mode .group:hover .group-hover\:\!bg-\[var\(--accent-color\)\] {
+            background: var(--accent-color) !important;
+            border-color: var(--accent-color) !important;
+            color: #000000 !important;
+        }
+        body.dark-mode .group:hover .btn-outline * {
+            color: #000000 !important;
+        }
+        body.dark-mode .hover\:\!bg-\[var\(--accent-color\)\]:hover {
+            color: #000000 !important;
+            border-color: var(--accent-color) !important;
+        }
+        body.dark-mode .hover\:\!bg-\[var\(--accent-color\)\]:hover * {
+            color: #000000 !important;
+        }
+
+        /* Secondary buttons on accent teal backgrounds in Dark Mode */
+        body.dark-mode .bg-\[var\(--accent-color\)\] .btn.border-white {
+            border-color: rgba(0, 0, 0, 0.45) !important;
+            color: #000000 !important;
+            background: rgba(0, 0, 0, 0.06);
+        }
+        body.dark-mode .bg-\[var\(--accent-color\)\] .btn.border-white:hover {
+            background: #000000 !important;
+            border-color: #000000 !important;
+            color: #FFFFFF !important;
+        }
+
+        /* Flexible Plans Section - CTA Buttons Visibility */
+        .flexible-plans-cta {
+            border: 2px solid var(--accent-color) !important;
+            color: var(--accent-color) !important;
+            background: transparent !important;
+            transition: all 0.3s ease;
+        }
+        .flexible-plans-cta:hover,
+        .flexible-plans-cta:hover * {
+            background-color: var(--accent-color) !important;
+            border-color: var(--accent-color) !important;
+            color: #FFFFFF !important;
+            transform: translateY(-2px);
+        }
+        body.dark-mode .flexible-plans-cta {
+            background: rgba(255, 255, 255, 0.08) !important;
+            border: 2px solid rgba(255, 255, 255, 0.45) !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.5) !important;
+        }
+        body.dark-mode .flexible-plans-cta:hover,
+        body.dark-mode .flexible-plans-cta:hover * {
+            background-color: var(--accent-color) !important;
+            border-color: var(--accent-color) !important;
+            color: #000000 !important;
+        }
+
+        /* Book Now Button (Single Session Card) - High Contrast & Clearly Visible in Light & Dark Mode */
+        .btn-book-now {
+            background: var(--accent-color) !important;
+            border: 2px solid var(--accent-color) !important;
+            color: #FFFFFF !important;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 14px rgba(13, 148, 136, 0.25) !important;
+            transition: all 0.3s ease;
+        }
+        .btn-book-now:hover,
+        .btn-book-now:hover * {
+            background: var(--accent-dark) !important;
+            border-color: var(--accent-dark) !important;
+            color: #FFFFFF !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(13, 148, 136, 0.35) !important;
+        }
+        body.dark-mode .btn-book-now {
+            background: var(--accent-color) !important;
+            border: 2px solid var(--accent-color) !important;
+            color: #000000 !important;
+            box-shadow: 0 4px 15px rgba(45, 212, 191, 0.25) !important;
+        }
+        body.dark-mode .btn-book-now:hover,
+        body.dark-mode .btn-book-now:hover * {
+            background: #FFFFFF !important;
+            border-color: #FFFFFF !important;
+            color: #000000 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3) !important;
+        }
+
+        /* Join Club Button (Monthly Bliss Card) */
+        .btn-plan-cta {
+            background: #FFFFFF !important;
+            color: var(--accent-color) !important;
+            border: 2px solid transparent !important;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1) !important;
+            transition: all 0.3s ease;
+        }
+        .btn-plan-cta:hover,
+        .btn-plan-cta:hover * {
+            background: #111827 !important;
+            border-color: #111827 !important;
+            color: #FFFFFF !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25) !important;
+        }
+        body.dark-mode .btn-plan-cta {
+            background: #FFFFFF !important;
+            color: #000000 !important;
+        }
+        body.dark-mode .btn-plan-cta:hover,
+        body.dark-mode .btn-plan-cta:hover * {
+            background: #000000 !important;
+            border-color: #000000 !important;
+            color: #FFFFFF !important;
+            transform: translateY(-2px);
+        }
+
+        /* Section 6: Bold Call to Action Buttons Visibility */
+        .btn-cta-primary {
+            background-color: var(--accent-color) !important;
+            color: #FFFFFF !important;
+            border: 2px solid var(--accent-color) !important;
+            font-weight: 700 !important;
+            transition: all 0.3s ease;
+        }
+        .btn-cta-primary:hover,
+        .btn-cta-primary:hover * {
+            background-color: var(--accent-dark) !important;
+            border-color: var(--accent-dark) !important;
+            color: #FFFFFF !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(13, 148, 136, 0.4);
+        }
+        body.dark-mode .btn-cta-primary {
+            background-color: var(--accent-color) !important;
+            color: #000000 !important;
+            border-color: var(--accent-color) !important;
+        }
+        body.dark-mode .btn-cta-primary:hover,
+        body.dark-mode .btn-cta-primary:hover * {
+            background-color: #FFFFFF !important;
+            color: #000000 !important;
+            border-color: #FFFFFF !important;
+            transform: translateY(-2px);
+        }
+
+        .btn-cta-secondary {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            border: 2px solid rgba(255, 255, 255, 0.85) !important;
+            color: #FFFFFF !important;
+            font-weight: 700 !important;
+            transition: all 0.3s ease;
+        }
+        .btn-cta-secondary *,
+        .btn-cta-secondary i {
+            color: #FFFFFF !important;
+        }
+        .btn-cta-secondary:hover {
+            background-color: #FFFFFF !important;
+            border-color: #FFFFFF !important;
+            color: #1F2937 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        }
+        .btn-cta-secondary:hover *,
+        .btn-cta-secondary:hover i {
+            color: #1F2937 !important;
+        }
+        body.dark-mode .btn-cta-secondary {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            border: 2px solid rgba(255, 255, 255, 0.6) !important;
+            color: #FFFFFF !important;
+        }
+        body.dark-mode .btn-cta-secondary:hover {
+            background-color: var(--accent-color) !important;
+            border-color: var(--accent-color) !important;
+            color: #000000 !important;
+            transform: translateY(-2px);
+        }
+        body.dark-mode .btn-cta-secondary:hover *,
+        body.dark-mode .btn-cta-secondary:hover i {
+            color: #000000 !important;
+        }
 
         /* RTL SUPPORT */
         [dir="rtl"] { text-align: right; }
@@ -143,28 +347,39 @@
 
         /* PILL TOGGLE */
         .theme-toggle-pill {
-            width: 52px; height: 28px; background: var(--bg-secondary); border-radius: 30px;
+            width: 68px; height: 40px; background: var(--bg-secondary); border-radius: 50px;
             position: relative; cursor: pointer; display: flex; align-items: center;
-            justify-content: space-between; padding: 0 6px; border: 1px solid var(--border-color);
+            justify-content: space-between; padding: 0 9px; border: 1px solid var(--border-color);
+            transition: all 0.3s ease; flex-shrink: 0;
         }
-        .theme-toggle-pill i { font-size: 10px; z-index: 1; }
+        .theme-toggle-pill i { font-size: 12px; z-index: 1; }
         .theme-toggle-pill .fa-sun { color: #0D9488; }
         .theme-toggle-pill .fa-moon { color: #6B7280; }
         .theme-toggle-pill .thumb {
-            position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; background: white;
+            position: absolute; top: 3px; left: 3px; width: 32px; height: 32px; background: white;
             border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); z-index: 2; border: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); z-index: 2; border: 1px solid var(--border-color);
         }
-        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(24px); background: #374151; border-color: var(--border-color); }
+        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(28px); background: #374151; border-color: var(--border-color); }
 
         /* RTL BUTTON STYLE */
         .rtl-btn-style {
-            width: 44px; height: 28px; background: var(--bg-secondary); border-radius: 6px;
-            border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;
-            font-size: 10px; font-weight: 700; cursor: pointer; color: var(--text-main);
-            transition: all 0.3s ease; font-family: 'Nunito', sans-serif;
+            width: 50px; height: 40px; background: var(--bg-secondary); border-radius: 8px;
+            border: 1px solid var(--border-color); display: inline-flex; align-items: center; justify-content: center;
+            font-size: 11px; font-weight: 700; cursor: pointer; color: var(--text-main);
+            transition: all 0.3s ease; font-family: 'Nunito', sans-serif; letter-spacing: 0.5px;
+            flex-shrink: 0;
         }
         .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+
+        .navbar .btn-solid {
+            height: 40px;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         /* === BUTTON DESIGN === */
         .btn {
@@ -259,7 +474,7 @@
                 </div>
                 <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
                 <div class="w-px h-6 bg-[var(--border-color)] mx-1"></div>
-                <a href="#" class="btn btn-solid !py-2.5 !px-6 !text-[11px]">Book Now</a>
+                <a href="#" class="btn btn-solid !h-[40px] !py-0 !px-6 !text-[11px]">Book Now</a>
             </div>
 
             <div class="xl:hidden flex items-center justify-end gap-4">
@@ -376,36 +591,44 @@
     <main class="w-full bg-[var(--bg-color)] flex flex-col">
 
         <!-- ==============================================
-             SECTION 1: WHY CHOOSE US (FEATURES GRID) (~50 lines)
+             SECTION 1: WHY CHOOSE US (FEATURES GRID - OPEN LAYOUT) (~50 lines)
         =============================================== -->
         <section class="py-20 lg:py-28 border-b border-[var(--border-color)]">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12 text-center">
                 <span class="text-[var(--accent-color)] font-bold text-sm uppercase tracking-widest mb-4 block">Our Difference</span>
                 <h2 class="text-3xl md:text-5xl font-extrabold text-[var(--text-main)] mb-16">The SoleSerenity Standard</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Feature 1 -->
-                    <div class="bg-[var(--bg-card)] p-8 rounded-3xl border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 group">
-                        <div class="w-16 h-16 mx-auto rounded-full bg-[var(--bg-secondary)] flex items-center justify-center text-2xl text-[var(--text-main)] group-hover:bg-[var(--accent-color)] group-hover:text-white transition-colors mb-6"><i class="fas fa-leaf"></i></div>
-                        <h3 class="text-xl font-bold text-[var(--text-main)] mb-3">100% Organic Oils</h3>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed">We use only premium, ethically sourced essential oils to protect your skin and enhance relaxation.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 text-center">
+                    <!-- Feature 1 (Open Layout) -->
+                    <div class="flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-2xl bg-[var(--accent-color)]/10 text-[var(--accent-color)] flex items-center justify-center text-2xl group-hover:bg-[var(--accent-color)] group-hover:text-white transition-all duration-300 mb-6 group-hover:scale-110 shadow-sm">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--text-main)] mb-3 group-hover:text-[var(--accent-color)] transition-colors">100% Organic Oils</h3>
+                        <p class="text-[var(--text-muted)] text-base leading-relaxed max-w-xs">We use only premium, ethically sourced essential oils to protect your skin and enhance relaxation.</p>
                     </div>
-                    <!-- Feature 2 -->
-                    <div class="bg-[var(--bg-card)] p-8 rounded-3xl border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 group">
-                        <div class="w-16 h-16 mx-auto rounded-full bg-[var(--bg-secondary)] flex items-center justify-center text-2xl text-[var(--text-main)] group-hover:bg-[var(--accent-color)] group-hover:text-white transition-colors mb-6"><i class="fas fa-certificate"></i></div>
-                        <h3 class="text-xl font-bold text-[var(--text-main)] mb-3">Certified Masters</h3>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed">Our therapists undergo rigorous training in ancient reflexology and modern anatomical sciences.</p>
+                    <!-- Feature 2 (Open Layout) -->
+                    <div class="flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-2xl bg-[var(--accent-color)]/10 text-[var(--accent-color)] flex items-center justify-center text-2xl group-hover:bg-[var(--accent-color)] group-hover:text-white transition-all duration-300 mb-6 group-hover:scale-110 shadow-sm">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--text-main)] mb-3 group-hover:text-[var(--accent-color)] transition-colors">Certified Masters</h3>
+                        <p class="text-[var(--text-muted)] text-base leading-relaxed max-w-xs">Our therapists undergo rigorous training in ancient reflexology and modern anatomical sciences.</p>
                     </div>
-                    <!-- Feature 3 -->
-                    <div class="bg-[var(--bg-card)] p-8 rounded-3xl border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 group">
-                        <div class="w-16 h-16 mx-auto rounded-full bg-[var(--bg-secondary)] flex items-center justify-center text-2xl text-[var(--text-main)] group-hover:bg-[var(--accent-color)] group-hover:text-white transition-colors mb-6"><i class="fas fa-volume-mute"></i></div>
-                        <h3 class="text-xl font-bold text-[var(--text-main)] mb-3">Silent Sanctuaries</h3>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed">Experience true peace in our acoustically treated, device-free treatment rooms.</p>
+                    <!-- Feature 3 (Open Layout) -->
+                    <div class="flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-2xl bg-[var(--accent-color)]/10 text-[var(--accent-color)] flex items-center justify-center text-2xl group-hover:bg-[var(--accent-color)] group-hover:text-white transition-all duration-300 mb-6 group-hover:scale-110 shadow-sm">
+                            <i class="fas fa-volume-mute"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--text-main)] mb-3 group-hover:text-[var(--accent-color)] transition-colors">Silent Sanctuaries</h3>
+                        <p class="text-[var(--text-muted)] text-base leading-relaxed max-w-xs">Experience true peace in our acoustically treated, device-free treatment rooms.</p>
                     </div>
-                    <!-- Feature 4 -->
-                    <div class="bg-[var(--bg-card)] p-8 rounded-3xl border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 group">
-                        <div class="w-16 h-16 mx-auto rounded-full bg-[var(--bg-secondary)] flex items-center justify-center text-2xl text-[var(--text-main)] group-hover:bg-[var(--accent-color)] group-hover:text-white transition-colors mb-6"><i class="fas fa-calendar-check"></i></div>
-                        <h3 class="text-xl font-bold text-[var(--text-main)] mb-3">Flexible Booking</h3>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed">Open 7 days a week with extended evening hours to easily fit wellness into your busy schedule.</p>
+                    <!-- Feature 4 (Open Layout) -->
+                    <div class="flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-2xl bg-[var(--accent-color)]/10 text-[var(--accent-color)] flex items-center justify-center text-2xl group-hover:bg-[var(--accent-color)] group-hover:text-white transition-all duration-300 mb-6 group-hover:scale-110 shadow-sm">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--text-main)] mb-3 group-hover:text-[var(--accent-color)] transition-colors">Flexible Booking</h3>
+                        <p class="text-[var(--text-muted)] text-base leading-relaxed max-w-xs">Open 7 days a week with extended evening hours to easily fit wellness into your busy schedule.</p>
                     </div>
                 </div>
             </div>
@@ -468,32 +691,55 @@
         </section>
 
         <!-- ==============================================
-             SECTION 4: CLIENT LOVE (~50 lines)
+             SECTION 4: CLIENT LOVE (TESTIMONIALS - OPEN LAYOUT) (~50 lines)
         =============================================== -->
         <section class="py-20 lg:py-28 bg-[var(--bg-secondary)] border-b border-[var(--border-color)]">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12 text-center">
                 <span class="text-[var(--accent-color)] font-bold text-sm uppercase tracking-widest mb-4 block">Testimonials</span>
-                <h2 class="text-3xl md:text-5xl font-extrabold text-[var(--text-main)] mb-14">Hear From Our Guests</h2>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-[var(--text-main)] mb-16">Hear From Our Guests</h2>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 text-left">
-                    <div class="bg-[var(--bg-card)] p-8 md:p-10 rounded-[2rem] border border-[var(--border-color)] shadow-sm flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300 h-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 text-left max-w-[1200px] mx-auto">
+                    <!-- Testimonial 1 (Open Layout) -->
+                    <div class="flex flex-col justify-between">
                         <div>
-                            <div class="flex text-[var(--accent-color)] mb-6 text-lg"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p class="text-[var(--text-main)] text-lg font-medium leading-relaxed italic mb-8">"I suffer from plantar fasciitis, and nothing has provided me relief quite like the targeted sessions here. The ambiance is breathtaking, and the staff treats you like royalty."</p>
+                            <div class="flex text-[var(--accent-color)] mb-4 text-sm gap-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote class="text-[var(--text-main)] text-xl lg:text-2xl font-medium leading-relaxed italic mb-8 relative">
+                                <i class="fas fa-quote-left text-3xl text-[var(--accent-color)]/25 mb-4 block"></i>
+                                "I suffer from plantar fasciitis, and nothing has provided me relief quite like the targeted sessions here. The ambiance is breathtaking, and the staff treats you like royalty."
+                            </blockquote>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 rounded-full bg-gray-200 overflow-hidden shrink-0"><img src="images/about6.jpg" class="w-full h-full object-cover"></div>
-                            <div><p class="font-bold text-[var(--text-main)]">David M.</p><p class="text-[var(--text-muted)] text-sm">Monthly Member</p></div>
+                        <div class="flex items-center gap-4 pt-6 border-t border-[var(--border-color)]">
+                            <div class="w-14 h-14 rounded-full overflow-hidden shrink-0 ring-2 ring-[var(--accent-color)]/30">
+                                <img src="images/about6.jpg" alt="David M." class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="font-bold text-[var(--text-main)] text-lg">David M.</p>
+                                <p class="text-[var(--accent-color)] text-sm font-semibold">Monthly Member</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="bg-[var(--bg-card)] p-8 md:p-10 rounded-[2rem] border border-[var(--border-color)] shadow-sm flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300 h-full mt-8 md:mt-0">
+
+                    <!-- Testimonial 2 (Open Layout) -->
+                    <div class="flex flex-col justify-between">
                         <div>
-                            <div class="flex text-[var(--accent-color)] mb-6 text-lg"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p class="text-[var(--text-main)] text-lg font-medium leading-relaxed italic mb-8">"An absolute hidden gem in the city. The aromatherapy foot soak followed by hot stones completely melted away months of accumulated stress. Highly recommended!"</p>
+                            <div class="flex text-[var(--accent-color)] mb-4 text-sm gap-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote class="text-[var(--text-main)] text-xl lg:text-2xl font-medium leading-relaxed italic mb-8 relative">
+                                <i class="fas fa-quote-left text-3xl text-[var(--accent-color)]/25 mb-4 block"></i>
+                                "An absolute hidden gem in the city. The aromatherapy foot soak followed by hot stones completely melted away months of accumulated stress. Highly recommended!"
+                            </blockquote>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 rounded-full bg-gray-200 overflow-hidden shrink-0"><img src="images/about5.jpg" class="w-full h-full object-cover"></div>
-                            <div><p class="font-bold text-[var(--text-main)]">Jessica R.</p><p class="text-[var(--text-muted)] text-sm">Local Guide</p></div>
+                        <div class="flex items-center gap-4 pt-6 border-t border-[var(--border-color)]">
+                            <div class="w-14 h-14 rounded-full overflow-hidden shrink-0 ring-2 ring-[var(--accent-color)]/30">
+                                <img src="images/about5.jpg" alt="Jessica R." class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="font-bold text-[var(--text-main)] text-lg">Jessica R.</p>
+                                <p class="text-[var(--accent-color)] text-sm font-semibold">Local Guide</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -511,21 +757,21 @@
                     <p class="text-[var(--text-muted)] text-lg leading-relaxed mb-8">
                         We offer single sessions for quick relief, and comprehensive membership packages for those committed to a pain-free, relaxed lifestyle. Our pricing is completely transparent.
                     </p>
-                    <a href="pricing.html" class="btn btn-outline !px-8 !py-4 shadow-sm group">View Full Pricing <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></a>
+                    <a href="pricing.html" class="btn btn-outline flexible-plans-cta !px-8 !py-4 shadow-sm group">View Full Pricing <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></a>
                 </div>
                 <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div class="bg-[var(--bg-card)] p-8 rounded-3xl border border-[var(--border-color)] shadow-sm text-center flex flex-col items-center">
                         <h4 class="font-bold text-[var(--text-main)] text-xl mb-2">Single Session</h4>
                         <div class="text-4xl font-extrabold text-[var(--text-main)] mb-4">$65</div>
                         <p class="text-[var(--text-muted)] text-sm mb-8 flex-1">45-minute deep foot reflexology with organic essential oils.</p>
-                        <a href="contact.html" class="text-[var(--text-main)] font-bold text-sm uppercase hover:text-[var(--accent-color)] transition-colors mt-auto w-full border border-[var(--border-color)] py-3 rounded-full hover:bg-[var(--bg-secondary)]">Book Now</a>
+                        <a href="contact.html" class="btn btn-book-now w-full !py-3.5 mt-auto">Book Now</a>
                     </div>
                     <div class="bg-[var(--accent-color)] p-8 rounded-3xl border border-[var(--accent-dark)] shadow-xl text-center text-white transform sm:-translate-y-4 flex flex-col items-center">
                         <div class="text-xs font-bold uppercase tracking-widest bg-white text-[var(--accent-color)] py-1.5 px-4 rounded-full inline-block mb-3 shadow-sm">Popular</div>
                         <h4 class="font-bold text-xl mb-2">Monthly Bliss</h4>
                         <div class="text-4xl font-extrabold mb-4">$110</div>
                         <p class="text-white/80 text-sm mb-8 flex-1">Two 60-minute sessions per month with priority weekend booking.</p>
-                        <a href="pricing.html" class="text-[var(--accent-color)] bg-white font-bold text-sm uppercase hover:bg-gray-100 transition-colors mt-auto w-full py-3 rounded-full shadow-sm">Join Club</a>
+                        <a href="pricing.html" class="btn btn-plan-cta w-full !py-3.5 mt-auto shadow-sm">Join Club</a>
                     </div>
                 </div>
             </div>
@@ -549,10 +795,10 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row justify-center gap-5">
-                    <a href="contact.html" class="btn bg-[var(--accent-color)] text-white hover:bg-[var(--accent-dark)] !px-10 !py-5 text-sm shadow-2xl border-none">
+                    <a href="contact.html" class="btn btn-cta-primary !px-10 !py-5 text-sm shadow-2xl">
                         Schedule Your Session
                     </a>
-                    <a href="tel:+18005557387" class="btn border-2 border-gray-600 text-white hover:bg-white hover:text-black hover:border-white !px-10 !py-5 text-sm shadow-xl transition-all">
+                    <a href="tel:+18005557387" class="btn btn-cta-secondary !px-10 !py-5 text-sm shadow-xl">
                         <i class="fas fa-phone mr-2"></i> 1-800-RELAX-NOW
                     </a>
                 </div>

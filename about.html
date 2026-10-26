@@ -75,11 +75,60 @@
             --menu-hover-bg: rgba(45, 212, 191, 0.1);
         }
 
-        /* Contrast Fixes */
+        /* Contrast & Visibility Fixes (Dark Mode) */
         body.dark-mode .btn-solid, body.dark-mode .bg-\[var\(--accent-color\)\] { color: #000000 !important; }
         body.dark-mode .btn-solid *, body.dark-mode .bg-\[var\(--accent-color\)\] * { color: #000000 !important; }
-        body.dark-mode .btn-outline:hover, body.dark-mode .hover\:\!bg-\[var\(--accent-color\)\]:hover { color: #000000 !important; }
-        body.dark-mode .hover\:\!bg-\[var\(--accent-color\)\]:hover * { color: #000000 !important; }
+
+        /* Secondary CTA in Dark Mode - High Contrast, Visible & Interactive */
+        body.dark-mode .btn-outline {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.45);
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+        }
+        body.dark-mode .btn-outline * {
+            color: inherit !important;
+        }
+        body.dark-mode .btn-outline:hover {
+            background: var(--accent-color) !important;
+            border-color: var(--accent-color) !important;
+            color: #000000 !important;
+            box-shadow: 0 8px 25px -4px rgba(45, 212, 191, 0.45);
+            transform: translateY(-2px);
+        }
+        body.dark-mode .btn-outline:hover * {
+            color: #000000 !important;
+        }
+        body.dark-mode .group:hover .btn-outline,
+        body.dark-mode .group:hover .group-hover\:\!text-white,
+        body.dark-mode .group:hover .group-hover\:\!bg-\[var\(--accent-color\)\] {
+            background: var(--accent-color) !important;
+            border-color: var(--accent-color) !important;
+            color: #000000 !important;
+        }
+        body.dark-mode .group:hover .btn-outline * {
+            color: #000000 !important;
+        }
+        body.dark-mode .hover\:\!bg-\[var\(--accent-color\)\]:hover {
+            color: #000000 !important;
+            border-color: var(--accent-color) !important;
+        }
+        body.dark-mode .hover\:\!bg-\[var\(--accent-color\)\]:hover * {
+            color: #000000 !important;
+        }
+
+        /* Secondary buttons on accent teal backgrounds in Dark Mode */
+        body.dark-mode .bg-\[var\(--accent-color\)\] .btn.border-white {
+            border-color: rgba(0, 0, 0, 0.45) !important;
+            color: #000000 !important;
+            background: rgba(0, 0, 0, 0.06);
+        }
+        body.dark-mode .bg-\[var\(--accent-color\)\] .btn.border-white:hover {
+            background: #000000 !important;
+            border-color: #000000 !important;
+            color: #FFFFFF !important;
+        }
 
         /* RTL SUPPORT */
         [dir="rtl"] { text-align: right; }
@@ -141,28 +190,39 @@
 
         /* PILL TOGGLE */
         .theme-toggle-pill {
-            width: 52px; height: 28px; background: var(--bg-secondary); border-radius: 30px;
+            width: 68px; height: 40px; background: var(--bg-secondary); border-radius: 50px;
             position: relative; cursor: pointer; display: flex; align-items: center;
-            justify-content: space-between; padding: 0 6px; border: 1px solid var(--border-color);
+            justify-content: space-between; padding: 0 9px; border: 1px solid var(--border-color);
+            transition: all 0.3s ease; flex-shrink: 0;
         }
-        .theme-toggle-pill i { font-size: 10px; z-index: 1; }
+        .theme-toggle-pill i { font-size: 12px; z-index: 1; }
         .theme-toggle-pill .fa-sun { color: #0D9488; }
         .theme-toggle-pill .fa-moon { color: #6B7280; }
         .theme-toggle-pill .thumb {
-            position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; background: white;
+            position: absolute; top: 3px; left: 3px; width: 32px; height: 32px; background: white;
             border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); z-index: 2; border: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); z-index: 2; border: 1px solid var(--border-color);
         }
-        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(24px); background: #374151; border-color: var(--border-color); }
+        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(28px); background: #374151; border-color: var(--border-color); }
 
         /* RTL BUTTON STYLE */
         .rtl-btn-style {
-            width: 44px; height: 28px; background: var(--bg-secondary); border-radius: 6px;
-            border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;
-            font-size: 10px; font-weight: 700; cursor: pointer; color: var(--text-main);
-            transition: all 0.3s ease; font-family: 'Nunito', sans-serif;
+            width: 50px; height: 40px; background: var(--bg-secondary); border-radius: 8px;
+            border: 1px solid var(--border-color); display: inline-flex; align-items: center; justify-content: center;
+            font-size: 11px; font-weight: 700; cursor: pointer; color: var(--text-main);
+            transition: all 0.3s ease; font-family: 'Nunito', sans-serif; letter-spacing: 0.5px;
+            flex-shrink: 0;
         }
         .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+
+        .navbar .btn-solid {
+            height: 40px;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         /* === BUTTON DESIGN === */
         .btn {
@@ -256,7 +316,7 @@
                 </div>
                 <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
                 <div class="w-px h-6 bg-[var(--border-color)] mx-1"></div>
-                <a href="#" class="btn btn-solid !py-2.5 !px-6 !text-[11px]">Book Now</a>
+                <a href="#" class="btn btn-solid !h-[40px] !py-0 !px-6 !text-[11px]">Book Now</a>
             </div>
 
             <div class="xl:hidden flex items-center justify-end gap-4">
